@@ -1,0 +1,5 @@
+<launch>
+	<node name="spawn_pallet" pkg="gazebo_ros" type="spawn_model" args="-urdf -file $(find icim_pallet)/urdf/icim_pallet_collet.urdf 
+	-model icim_pallet_collet 
+	-x -0.1077 -y -0.7060 -z 0.506 " output="screen" />
+</launch>

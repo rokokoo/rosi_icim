@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot name="icim_pallet_collet">
+  <link name="icim_pallet_collet">
+    <inertial>
+      <origin xyz="0.00048763 -0.00011521 0.0038966" rpy="0 0 0" />
+      <mass value="0.4642" />
+      <inertia ixx="0.00094293" ixy="-4.1861E-06" ixz="-6.3835E-07" iyy="0.00095312" iyz="-2.0712E-09" izz="0.0018922" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://icim_pallet/meshes/icim_pallet_collet.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://icim_pallet/meshes/icim_pallet_collet.STL" />
+      </geometry>
+    </collision>
+  </link>
+</robot>

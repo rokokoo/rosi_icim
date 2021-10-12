@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot name="icim_robot">
+  <link name="body">
+    <inertial>
+      <origin xyz="-0.030386 0.0046916 0.85202" rpy="0 0 0" />
+      <mass value="34.351" />
+      <inertia ixx="9.3124" ixy="-1.1438E-08" ixz="0.0053153" iyy="1.1848" iyz="-1.1068E-08" izz="8.1983" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://icim_robot/meshes/body.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://icim_robot/meshes/body_collision.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="horizontal_link">
+    <inertial>
+      <origin xyz="-0.092164 -0.14237 0.51838" rpy="0 0 0" />
+      <mass value="3.4948" />
+      <inertia ixx="0.24483" ixy="-5.3915E-08" ixz="0.00011145" iyy="0.24092" iyz="0.00080747" izz="0.0055198" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://icim_robot/meshes/horizontal_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.80784 0.84314 0.90588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://icim_robot/meshes/horizontal_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="horizontal_joint" type="prismatic">
+    <origin xyz="0.237 -0.70975 0.48513" rpy="0 0 0" />
+    <parent link="body" />
+    <child link="horizontal_link" />
+    <axis xyz="0 1 0" />
+    <limit lower="-0.5" upper="2" effort="500" velocity="0.2" />
+    <dynamics damping="1" friction="0.7" />
+  </joint>
+  <link name="vertical_link">
+    <inertial>
+      <origin xyz="-0.020856 -0.038421 -0.00059856" rpy="0 0 0" />
+      <mass value="1.9895" />
+      <inertia ixx="0.025866" ixy="0.0013294" ixz="0.00018017" iyy="0.012587" iyz="-0.0009541" izz="0.037353" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://icim_robot/meshes/vertical_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.80784 0.84314 0.90588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://icim_robot/meshes/vertical_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="vertical_joint" type="prismatic">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="horizontal_link" />
+    <child link="vertical_link" />
+    <axis xyz="0 0 1" />
+    <limit lower="-0.2" upper="2" effort="500" velocity="0.2" />
+    <dynamics damping="1" friction="0.7" />
+  </joint>
+  <link name="depth_link">
+		<inertial>
+			<origin xyz="-0.051332 0.00375 0.029383" rpy="0 0 0" />
+			<mass value="0.36582" />
+			<inertia ixx="7.0392E-05" ixy="1.3209E-10" ixz="-1.4989E-18" iyy="0.003847" iyz="-8.453E-21" izz="0.0038331" />
+		</inertial>
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="package://icim_robot/meshes/depth_link.STL" />
+			</geometry>
+			<material name="">
+				<color rgba="0.80784 0.84314 0.90588 1" />
+			</material>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="package://icim_robot/meshes/depth_link.STL" />
+			</geometry>
+		</collision>
+	</link>
+  <joint name="depth_joint" type="prismatic">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="vertical_link" />
+    <child link="depth_link" />
+    <axis xyz="-1 0 0" />
+    <limit lower="-0.5" upper="0.5" effort="500" velocity="0.2" />
+    <dynamics damping="1" friction="0.7" />
+  </joint>
+</robot>
